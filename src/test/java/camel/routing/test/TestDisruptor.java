@@ -59,7 +59,7 @@ public class TestDisruptor {
 
 		void receiveMessage() {
 			try {
-				context.start();
+				// context.start();
 				ConsumerTemplate consumer = context.createConsumerTemplate();
 				consumer.start();
 				log.error("Consuming messages from {}.",
