@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%d{yyyy-MM-dd HH:mm:ss,SSS}] %l [%p] [%t] %m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="dk.navicon.trackwerk" level="DEBUG" />
+		<Logger name="org.apache.camel" level="ERROR" />
+		<Logger name="org.apache.camel.component.bean.MethodInfo"
+			level="ERROR" />
+
+		<Root level="ERROR">
+			<AppenderRef ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>

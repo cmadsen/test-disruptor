@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<!-- define the consumers as spring beans -->
+<!-- 	<bean id="consumer1" class="camel.routing.test.FooEventConsumer" /> -->
+
+	<!-- <bean id="consumer2" -->
+	<!-- class="org.apache.camel.spring.example.AnotherFooEventConsumer" /> -->
+
+	<camelContext id="camel" autoStartup="true"
+		xmlns="http://camel.apache.org/schema/spring">
+
+
+		<route id="testRoute">
+			<from uri="disruptor:in?multipleConsumers=true" />
+			<to uri="disruptor:out?multipleConsumers=true" />
+		</route>
+
+		<!-- define a shared endpoint which the consumers can refer to instead 
+			of using url -->
+		<!-- <endpoint id="foo" uri="disruptor:foo?multipleConsumers=true" /> -->
+
+	</camelContext>
+
+</beans>
